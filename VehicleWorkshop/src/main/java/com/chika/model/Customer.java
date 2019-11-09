@@ -147,21 +147,16 @@ public class Customer {
 	}
 
 	
-//	@OneToMany(cascade = CascadeType.ALL, mappedBy="customer")
-//	private List<MaintenanceRequest> maintenanceRequest = new ArrayList<>();
-//	
-//  @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-//   @JsonIgnoreProperties("customer")
-//   private List<Vehicle> vehicle = new ArrayList<>();
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="customer")
+	private List<MaintenanceRequest> maintenanceRequest = new ArrayList<>();
+	
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+   @JsonIgnoreProperties("customer")
+   private List<Vehicle> vehicle = new ArrayList<>();
     
-//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "customer")
-//    private ServiceCenter serviceCenter;
-//    
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinTable(name = "customer_roles", 
-//    	joinColumns = @JoinColumn(name = "cust_id"), 
-//    	inverseJoinColumns = @JoinColumn(name = "role_id"))
-//    private Set<Role> roles = new HashSet<>();
+   @OneToOne(cascade = CascadeType.ALL, mappedBy = "customer")
+   private ServiceCenter serviceCenter;
+
 
 	 public User getUser() {
 			return user;
@@ -173,34 +168,30 @@ public class Customer {
 		}
     
 
-//	public ServiceCenter getServiceCenter() {
-//		return serviceCenter;
-//	}
-//
-//	public void setServiceCenter(ServiceCenter serviceCenter) {
-//		this.serviceCenter = serviceCenter;
-//	}
-//
-//	public List<MaintenanceRequest> getMaintenanceRequest() {
-//		return maintenanceRequest;
-//	}
-//
-//
-//	public void setMaintenanceRequest(List<MaintenanceRequest> maintenanceRequest) {
-//		this.maintenanceRequest = maintenanceRequest;
-//	}
+	public ServiceCenter getServiceCenter() {
+		return serviceCenter;
+	}
 
-	
-//
-//	public List<Vehicle> getVehicle() {
-//		return vehicle;
-//	}
-//
-//
-//
-//	public void setVehicle(List<Vehicle> vehicle) {
-//		this.vehicle = vehicle;
-//	}
+	public void setServiceCenter(ServiceCenter serviceCenter) {
+		this.serviceCenter = serviceCenter;
+	}
+
+	public List<MaintenanceRequest> getMaintenanceRequest() {
+		return maintenanceRequest;
+	}
+
+
+	public void setMaintenanceRequest(List<MaintenanceRequest> maintenanceRequest) {
+		this.maintenanceRequest = maintenanceRequest;
+	}
+
+	public List<Vehicle> getVehicle() {
+		return vehicle;
+	}
+
+	public void setVehicle(List<Vehicle> vehicle) {
+		this.vehicle = vehicle;
+	}
 
 }
 	

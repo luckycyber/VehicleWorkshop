@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,8 @@ import com.chika.service.CustomerService;
 @RequestMapping(value="customer")
 public class CustomerController {
 	    
+	@Autowired
+	PasswordEncoder encoder;
 	
 	        @Autowired
 	        private Email email;
@@ -48,7 +51,11 @@ public class CustomerController {
 	        }
 	        @PostMapping("/posts")
 	           public ResponseEntity<Void> Customer(@RequestBody Customer cus, UriComponentsBuilder builder){
-	            Customer flag = custServ.addCustomer(cus);
+	        	Customer cs = cus;
+	        	String password = encoder.encode(cs.getPassword());
+	        	cs.setPassword(password);
+	        	cs.getUser().setPassword(password);
+	            Customer flag = custServ.addCustomer(cs);
 	            if(flag==null)
 	               return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 	            HttpHeaders header = new HttpHeaders();

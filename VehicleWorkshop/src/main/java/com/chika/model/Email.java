@@ -14,7 +14,7 @@ public class Email {
 		SimpleMailMessage msg = new SimpleMailMessage();		
 		msg.setTo("phuccong44@gmail.com", "lekongfuc@yahoo.com");
 		msg.setSubject("Testing from Spring Boot");
-		msg.setText("welcome to Spring Boot Simple Email");
+		msg.setText("Welcome to Spring Boot Angular Simple Email");
 		javaMailSender.send(msg);		
 	}
 }

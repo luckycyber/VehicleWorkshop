@@ -35,7 +35,7 @@ import com.chika.security.jwt.JwtProvider;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthRestAPIs {
-
+	
 	@Autowired
 	AuthenticationManager authenticationManager;
 
